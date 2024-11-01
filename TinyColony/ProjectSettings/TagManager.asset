@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Human
+  - Portal
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Laucher_Back
+    uniqueID: 2920778327
+    locked: 0
+  - name: Env
+    uniqueID: 1838323673
+    locked: 0
+  - name: Item
+    uniqueID: 2398617917
+    locked: 0
+  - name: Human
+    uniqueID: 599047223
+    locked: 0
+  - name: Launcher_Frount
+    uniqueID: 171836339
+    locked: 0
+  m_RenderingLayers:
+  - Default
