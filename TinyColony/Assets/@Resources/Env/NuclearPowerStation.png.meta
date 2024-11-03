@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NuclearPowerStation_0: -2235477890742342896
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
