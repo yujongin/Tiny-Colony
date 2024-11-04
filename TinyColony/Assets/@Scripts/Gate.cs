@@ -8,12 +8,19 @@ public class Gate : MonoBehaviour
 
     int arriveHuman;
 
+    private void Awake()
+    {
+        Managers.Game.gates.Add(this);
+        Managers.Game.InitPoint();
+        remaintext.text = remaintext.text = $"{arriveHuman}/{maxHuman}";
+    }
     public int ArriveHuman {  
         get { return arriveHuman; }
         set 
         { 
             arriveHuman = value;
-            remaintext.text = $"{arriveHuman} + / + {maxHuman}";
+            remaintext.text = $"{arriveHuman}/{maxHuman}";
+            Managers.Game.UpdatePoint();
         }
     }
 
@@ -25,12 +32,9 @@ public class Gate : MonoBehaviour
             collision.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
             Human human = collision.GetComponent<Human>();
             human.portal = transform;
-            StartCoroutine(human.ArriveCoroutine());           
+            StartCoroutine(human.ArriveCoroutine());
+            ArriveHuman = ArriveHuman < maxHuman ? ArriveHuman + 1 : maxHuman;
+            collision.GetComponent<Collider2D>().enabled = false;
         }
-    }
-
-    void Update()
-    {
-        
     }
 }

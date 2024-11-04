@@ -21,6 +21,7 @@ public class Human : ItemBase
 
             yield return null;
         }
-        Destroy(gameObject,1f);
+
+        Managers.Object.DespawnItem(this.gameObject);
     }
 }

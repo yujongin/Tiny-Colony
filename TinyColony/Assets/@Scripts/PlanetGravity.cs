@@ -7,6 +7,8 @@ public class PlanetGravity : MonoBehaviour
     public float gravityScale = 3f;
     public float dragCoefficient = 0.05f;    // 저항 계수
 
+
+    [SerializeField]
     List<Rigidbody2D> items = new List<Rigidbody2D>();
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,6 +25,7 @@ public class PlanetGravity : MonoBehaviour
         if (collision.GetComponent<ItemBase>() != null)
         {
             items.Remove(collision.GetComponent<Rigidbody2D>());
+            collision.GetComponent<ItemBase>().isAtmosphere = false;
         }
     }
     private void FixedUpdate()
@@ -30,7 +33,10 @@ public class PlanetGravity : MonoBehaviour
         for(int i = 0; i < items.Count; i++)
         {
             Vector3 dir = transform.position - items[i].transform.position;
-            items[i].AddForce(dir.normalized * gravityScale);
+            float distance = dir.magnitude;
+            Vector3 force = dir.normalized * (gravityScale / (distance * distance));
+
+            items[i].AddForce(force);
 
             Vector3 velocity = items[i].linearVelocity;
             Vector3 dragForce = -dragCoefficient * velocity.magnitude * velocity;

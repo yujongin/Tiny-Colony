@@ -5,8 +5,6 @@ public class ItemBase : MonoBehaviour
     public bool isAtmosphere;
 
     //landing planet
-
-
     void Update()
     {
         if (isAtmosphere)
@@ -19,5 +17,10 @@ public class ItemBase : MonoBehaviour
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90));
             }
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        isAtmosphere = false;
     }
 }
