@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -14,10 +15,11 @@ public class Gate : MonoBehaviour
         Managers.Game.InitPoint();
         remaintext.text = remaintext.text = $"{arriveHuman}/{maxHuman}";
     }
-    public int ArriveHuman {  
+    public int ArriveHuman
+    {
         get { return arriveHuman; }
-        set 
-        { 
+        set
+        {
             arriveHuman = value;
             remaintext.text = $"{arriveHuman}/{maxHuman}";
             Managers.Game.UpdatePoint();
@@ -27,8 +29,10 @@ public class Gate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Human")
+
+        if (collision.tag == "Human")
         {
+            GetComponent<AudioSource>().Play();
             collision.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
             Human human = collision.GetComponent<Human>();
             human.portal = transform;
@@ -36,5 +40,24 @@ public class Gate : MonoBehaviour
             ArriveHuman = ArriveHuman < maxHuman ? ArriveHuman + 1 : maxHuman;
             collision.GetComponent<Collider2D>().enabled = false;
         }
+        if (ArriveHuman == maxHuman)
+        {
+            GetComponent<Collider2D>().enabled = false;
+            StartCoroutine(ClosePortal());
+        }
+    }
+    public float scaleDownSpeed = 3f;
+    public IEnumerator ClosePortal()
+    {
+        while (transform?.localScale.x > 0)
+        {
+            transform.localScale -= Vector3.one * scaleDownSpeed * Time.deltaTime;
+
+            if (transform.localScale.x < 0)
+                transform.localScale = Vector3.zero;
+
+            yield return null;
+        }
+
     }
 }

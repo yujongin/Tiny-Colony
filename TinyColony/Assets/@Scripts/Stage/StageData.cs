@@ -3,16 +3,15 @@ using UnityEngine;
 [System.Serializable]
 public class StageData
 {
-    public int maxhumanCount;
-    public int house01Count;
-    public int house02Count;
-    public int tree01Count;
-    public int tree02Count;
-    public int windTurbineCount;
-    public int nuclearPowerStationCount;
-    public int bombCount;
+    public int HumanCount;
+    public int House01Count;
+    public int House02Count;
+    public int Tree01Count;
+    public int Tree02Count;
+    public int WindTurbineCount;
+    public int NuclearPowerStationCount;
+    public int BombCount;
 
-    public int oneStarFlag;
-    public int twoStarFlag;
-    public int threeStarFlag;
+    public int[] StarFlags;
+
 }

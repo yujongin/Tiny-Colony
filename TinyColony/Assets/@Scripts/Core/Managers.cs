@@ -19,6 +19,7 @@ public class Managers : MonoBehaviour
     private ObjectManager objectManager;
     private ExSceneManager exSceneManager;
     private StageManager stageManager;
+
     public static GameManager Game { get { return Instance?.gameManager; } }
     public static ObjectManager Object { get { return Instance?.objectManager; } }
     public static ExSceneManager ExScene { get { return Instance?.exSceneManager; } }

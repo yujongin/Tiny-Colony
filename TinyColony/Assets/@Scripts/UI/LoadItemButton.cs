@@ -1,4 +1,6 @@
 using System;
+using System.Reflection;
+using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -18,14 +20,34 @@ public class LoadItemButton : MoveUI
         {
             return false;
         }
+
+
+        return true;
+    }
+    private void Start()
+    {
+        object value = GetFieldValue(Managers.Stage.currentStageData, itemName.ToString() + "Count");
+        maxItemCount = (int)value;
         remainItemCount = maxItemCount;
         remainCountText = transform.GetComponentInChildren<TMP_Text>();
         itemName = Util.ParseEnum<EItemName>(gameObject.name);
         remainCountText.text = maxItemCount.ToString();
         gameObject.BindEvent(OnLeftClick, EUIEvent.LeftClick);
         gameObject.BindEvent(OnRightClick, EUIEvent.RigthClick);
-        return true;
     }
+
+    public object GetFieldValue(object obj, string fieldName)
+    {
+        FieldInfo field = obj.GetType().GetField(fieldName, BindingFlags.Public | BindingFlags.Instance);
+
+        if (field != null)
+        {
+            return field.GetValue(obj);
+        }
+
+        return null;
+    }
+
 
     void SpawnItem()
     {

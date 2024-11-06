@@ -7,6 +7,8 @@ TagManager:
   - Human
   - Portal
   - Planet
+  - Env
+  - Nuclear
   layers:
   - Default
   - TransparentFX

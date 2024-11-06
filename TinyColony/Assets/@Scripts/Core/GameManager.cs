@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int BonusPoint {  get { return bonusPoint; } }
     public int TotalPoint {  get { return totalPoint; } }
 
- 
+    public int remainHuman;
 
     public void InitPoint()
     {
@@ -28,13 +28,12 @@ public class GameManager : MonoBehaviour
     public void FinishGame()
     {
         gates.Clear();
+        gameScene = null;
     }
 
     public void UpdatePoint()
     {
         currentPoint = currentPoint < goalPoint ? currentPoint + 1 : goalPoint;
-        Debug.Log(currentPoint);
-        Debug.Log(goalPoint);
         if (goalPoint == currentPoint)
         {
             StageClear();
@@ -46,12 +45,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("stage Clear!");
         totalPoint = currentPoint + bonusPoint;
         StartCoroutine(gameScene.OpenScore());
-        FinishGame();
-    }
-
-    public void GameOver()
-    {
-        Debug.Log("GameOver");
         FinishGame();
     }
 
