@@ -32,7 +32,7 @@ public class Gate : MonoBehaviour
 
         if (collision.tag == "Human")
         {
-            GetComponent<AudioSource>().Play();
+            Managers.Sound.PlayOneShot(Managers.Sound.portalSound);
             collision.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
             Human human = collision.GetComponent<Human>();
             human.portal = transform;

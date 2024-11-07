@@ -7,16 +7,20 @@ public class TitleScene : MonoBehaviour
     public GameObject levelButton;
     public GameObject tutorialButton;
     public GameObject quitButton;
+    public GameObject optionButton;
 
-    public GameObject levelPage;
-    public GameObject tutorialPage;
+    public GameObject levelPanel;
+    public GameObject tutorialPanel;
+    public GameObject soundPanel;
     void Start()
     {
         startButton.BindEvent(OnGameStart);
         levelButton.BindEvent(OnLevelPopup);
         quitButton.BindEvent(OnGameQuit);
         tutorialButton.BindEvent(OnTutorialPopup);
-        levelPage.SetActive(false);
+        optionButton.BindEvent(OnOptionPopup);
+        levelPanel.SetActive(false);
+        Managers.Sound.PlayBGM(Managers.Sound.titleBGM);
     }
 
     public void OnGameStart(PointerEventData eventData)
@@ -26,13 +30,15 @@ public class TitleScene : MonoBehaviour
     }
     public void OnLevelPopup(PointerEventData eventData)
     {
-        //open level popup
-        levelPage.SetActive(true);
+        levelPanel.SetActive(true);
     }
     public void OnTutorialPopup(PointerEventData eventData)
     {
-        //open tutorial popup
-        tutorialPage.SetActive(true);
+        tutorialPanel.SetActive(true);
+    }
+    public void OnOptionPopup(PointerEventData eventData)
+    {
+        soundPanel.SetActive(true);
     }
     public void OnGameQuit(PointerEventData eventData)
     {
@@ -43,9 +49,9 @@ public class TitleScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            levelPage.SetActive(false);
-            tutorialPage.SetActive(false);
-
+            levelPanel.SetActive(false);
+            tutorialPanel.SetActive(false);
+            soundPanel.SetActive(false);
         }
     }
 }

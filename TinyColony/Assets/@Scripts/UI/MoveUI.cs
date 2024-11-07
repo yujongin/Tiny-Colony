@@ -15,7 +15,6 @@ public class MoveUI : UIBase
 
     private Coroutine effectCoroutine;
 
-    private AudioSource soundManager;
     public override bool Init()
     {
         if (base.Init() == false)
@@ -29,10 +28,6 @@ public class MoveUI : UIBase
         gameObject.BindEvent(OnPointerEnter, EUIEvent.PointerEnter);
         gameObject.BindEvent(OnPointerExit, EUIEvent.PointerExit);
 
-        if(soundManager == null)
-        {
-            soundManager = GameObject.Find("UISoundManager").GetComponent<AudioSource>();
-        }
         return true;
     }
 
@@ -47,11 +42,8 @@ public class MoveUI : UIBase
         float randomAngle = Random.Range(0, 2) == 0 ? -rotationAngle : rotationAngle;
 
         effectCoroutine = StartCoroutine(EnterAnimateTransform(randomAngle, scaleMultiplier));
-        if (soundManager == null)
-        {
-            soundManager = GameObject.Find("UISoundManager").GetComponent<AudioSource>();
-        }
-        soundManager.Play();
+
+        Managers.Sound.PlayOneShot(Managers.Sound.buttonHoverSound);
     }
     public void OnPointerExit(PointerEventData eventData)
     {

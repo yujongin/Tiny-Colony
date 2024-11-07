@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameScene : MonoBehaviour
 {
     public GameObject stageClearPopUp;
-    public GameObject gameOverPopUp;
+    public GameObject soundPanel;
     public GameObject nextBtn;
 
     public TMP_Text humanScore;
@@ -21,7 +21,18 @@ public class GameScene : MonoBehaviour
         Managers.Game.gameScene = this;
         GameObject.Instantiate(Managers.Stage.currentStagePrefab);
     }
-
+    void Start()
+    {
+        Managers.Sound.PlayBGM(Managers.Sound.gameBGM);    
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            soundPanel.SetActive(!soundPanel.activeSelf);
+            Time.timeScale = soundPanel.activeSelf ? 0.0f : 1.0f;
+        }
+    }
     public void SetScore()
     {
         humanScore.text = "Human Score : " + Managers.Game.CurrentPoint;

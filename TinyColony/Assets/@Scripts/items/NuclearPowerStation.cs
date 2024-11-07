@@ -30,7 +30,7 @@ public class NuclearPowerStation : ItemBase
     public void Explode(Vector2 pos)
     {
         GetComponent<Animator>().SetTrigger("Explode");
-        GetComponent<AudioSource>().Play();
+        Managers.Sound.PlayOneShot(Managers.Sound.explodeSound);
         triggerCollider.enabled = true;
         GameObject[] planets = GameObject.FindGameObjectsWithTag("Planet");
 
