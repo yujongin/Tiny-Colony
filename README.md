@@ -1,10 +1,11 @@
 # Tiny-Colony
-mini project
 
-모바일은 지원하지 않습니다. PC Web에서 실행해주세요.
+### 3일 게임 제작 프로젝트
+#### (11/01, 11/04 ~ 11/05)
 
 ### [Play 링크](https://yujongin.github.io/Tiny-Colony-Play/)
 
+##### 모바일은 지원하지 않습니다. PC Web에서 실행해주세요.
 
 ### Tiny Colony라는 기존에 있는 게임을 모작해보았습니다. <br/>
 ![image](https://github.com/user-attachments/assets/42a04ed5-c6ed-460c-bc64-c88b992683d3)
@@ -54,6 +55,25 @@ mini project
   - #### 플레이 화면 아래에 패널에서 원하는 오브젝트를 선택해 슬링 샷에 장전합니다.
   - #### 좌클릭으로 장전, 우클릭으로 장전 해제를 할 수 있습니다.
   - #### 마우스로 슬링 샷을 당겨 오브젝트를 행성을 향해 발사합니다.
+<br/>
+
+<img src="https://github.com/user-attachments/assets/6d068b04-36e5-493d-bf84-c7b64e1fa41e" width="640" height="360"/>
+
+#### 진행 방법
+  - #### 각 stage가 있고 원하는 스테이지를 선택해 진행할 수 있습니다.
+  - #### 스테이지를 클리어하면 별점을 통해 최고 기록이 저장됩니다.
+
+<br/><br/><br/>
+## 구현한 주요기능
+
+ - #### 사람을 날리는 슬링샷
+![image](https://github.com/user-attachments/assets/09118187-92be-4fac-a370-59fb5e41405a)
+ - #### 행성을 향하는 중력
+![image](https://github.com/user-attachments/assets/650bdb80-d15f-4922-8a73-19a244e7c251)
+ - #### 행성에 폭탄이 떨어졌을 때 행성이 깎이는 효과
+![image](https://github.com/user-attachments/assets/cbd2d616-e0ab-4f91-bd6e-6fcabb8ef58b)
+ - #### 소행성 또는 장애물이 폭탄에 맞아 없어지거나 오브젝트에 피해를 주는 효과
+![image](https://github.com/user-attachments/assets/f352bf3d-4be0-4792-8deb-172e4c98dc0b)
 
 
 
